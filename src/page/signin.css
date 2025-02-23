@@ -1,0 +1,106 @@
+/* Sign-In Page Styles */
+.signin-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('public/Images/loginpage.jpg'); /* Add your image path here */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    /* Space for footer */
+    /* Ensure the page spans full width */
+  }
+
+/* Sign-In Title */
+.signin-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.signin-form:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out; /* Slightly enlarge on hover */
+}
+
+/* Sign-In Form */
+.signin-form {
+    background-color: rgba(109, 63, 63, 0.8);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-label {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ff6200;
+}
+
+/* Sign-In Button */
+.signin-btn {
+    padding: 12px;
+    background-color: #ff6200;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signin-btn:hover {
+    background-color: #d01313;
+}
+
+.signin-btn:active {
+    background-color: #85005f;
+}
+
+/* Sign-In Link */
+.signin-link {
+    margin-top: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.signin-link a {
+    color: #ff6200;
+    text-decoration: none;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
+}

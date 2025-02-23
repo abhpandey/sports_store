@@ -1,0 +1,84 @@
+/* Login Page Styles */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('public/Images/loginpage.jpg'); /* Add your image path here */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Ensure the page spans full width */
+  }
+
+  .login-form:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out; /* Slightly enlarge on hover */
+}
+
+  
+  .login-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ede7e7;
+  }
+  
+  .login-form {
+    background-color: rgba(109, 63, 63, 0.8); /* Slightly transparent background for the form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    color: #eee7e7;
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #ff6200;
+  }
+  
+  .login-btn {
+    padding: 12px;
+    background-color: #ff6200;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-btn:hover {
+    background-color: #d01313;
+  }
+  
+  .login-btn:active {
+    background-color: #85005f;
+  }
+  

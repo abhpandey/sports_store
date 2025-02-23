@@ -1,0 +1,31 @@
+/* Ensure full height for the page */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make #root take full height */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should push the footer down */
+.main-content {
+  flex: 1;
+}
+
+/* Sticky footer */
+.footer-container {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}

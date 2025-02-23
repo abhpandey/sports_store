@@ -1,0 +1,49 @@
+/* Navbar */
+.navbar {
+    background-color: black;
+    color: white;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0; /* Align to the top of the screen */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the screen */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+  /* Navbar List */
+  .navbar-list {
+    display: none; /* Hide on mobile */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 100px;
+  }
+  
+  /* Navbar Item */
+  .navbar-item {
+    cursor: pointer;
+  }
+  
+  /* Navbar Link */
+  .navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  .navbar-link:hover {
+    color: gray;
+  }
+  
+  /* Show navbar on medium screens and larger */
+  @media (min-width: 768px) {
+    .navbar-list {
+      display: flex;
+    }
+  }
+  
