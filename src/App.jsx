@@ -40,7 +40,7 @@ function MainContent() {
           <Route path="/cart" element={<CartPage />} />
         </Routes>
       </div>
-      {showFooter && <Footer />} {/* Render Footer based on the condition */}
+      {showFooter && <Footer />} {/* Conditionally render Footer */}
     </>
   );
 }
