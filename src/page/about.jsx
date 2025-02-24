@@ -42,7 +42,7 @@ const About = () => {
         <h2>Contact Us</h2>
         <p>
           📍 <strong>Location:</strong> kathmandu,softwarica clz<br />
-          📧 <strong>Email:</strong> support@sportsstore.com<br />
+          📧 <strong>Email:</strong> support@ultamatesportsstore.com<br />
           📞 <strong>Phone:</strong> +123 456 7890
         </p>
       </section>
