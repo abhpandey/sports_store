@@ -14,13 +14,15 @@ const SignIn = () => {
     e.preventDefault();
     setError("");
 
+    // Password match validation
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/signup", {
+      // Update the URL to point to your backend's signup endpoint
+      const response = await fetch("http://localhost:5000/api/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, phone, password }),
@@ -28,6 +30,7 @@ const SignIn = () => {
 
       const data = await response.json();
 
+      // Handle successful sign-up
       if (response.ok) {
         alert("Sign-up successful! Redirecting to login...");
         navigate("/login"); // Redirect to login page
@@ -44,8 +47,10 @@ const SignIn = () => {
     <div className="signin-page">
       <h1 className="signin-title">Sign Up</h1>
       <form onSubmit={handleSubmit} className="signin-form">
+        {/* Display error message if there's an error */}
         {error && <p className="error-message">{error}</p>}
-        
+
+        {/* Email input field */}
         <div className="form-group">
           <label htmlFor="email" className="form-label">Email</label>
           <input
@@ -58,7 +63,8 @@ const SignIn = () => {
             placeholder="Enter your email"
           />
         </div>
-        
+
+        {/* Phone number input field */}
         <div className="form-group">
           <label htmlFor="phone" className="form-label">Phone Number</label>
           <input
@@ -73,6 +79,7 @@ const SignIn = () => {
           />
         </div>
 
+        {/* Password input field */}
         <div className="form-group">
           <label htmlFor="password" className="form-label">Password</label>
           <input
@@ -86,6 +93,7 @@ const SignIn = () => {
           />
         </div>
 
+        {/* Confirm password input field */}
         <div className="form-group">
           <label htmlFor="confirm-password" className="form-label">Confirm Password</label>
           <input
@@ -99,8 +107,10 @@ const SignIn = () => {
           />
         </div>
 
+        {/* Submit button */}
         <button type="submit" className="signin-btn">Sign Up</button>
-        
+
+        {/* Link to login page if already have an account */}
         <p className="signin-link">
           Already have an account? <a href="/login">Login here</a>
         </p>

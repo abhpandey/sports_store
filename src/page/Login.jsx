@@ -12,15 +12,17 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      // Update URL to match the correct backend login route
       const response = await axios.post("http://localhost:5000/api/login", {
         email,
         password,
       });
 
+      // If the login is successful, store the token and navigate to the home page
       if (response.data.token) {
-        localStorage.setItem("token", response.data.token); // Store token
+        localStorage.setItem("token", response.data.token); // Store token in localStorage
         alert("Login successful!");
-        navigate("/"); // Redirect to home page
+        navigate("/"); // Redirect to home page after successful login
       }
     } catch (error) {
       alert("Invalid email or password. Please try again.");
@@ -58,7 +60,7 @@ const Login = () => {
         </div>
         <button type="submit" className="login-btn">Login</button>
         <p className="login-link">
-          Don't have an account? <a href="/signup">Sign up here</a>
+          Don't have an account? <a href="/signin">Sign up here</a>
         </p>
       </form>
     </div>
