@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import axios from "axios";
-import "./Login.css"; // Keep your styles
-
+import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Update URL to match the correct backend login route
+      
       const response = await axios.post("http://localhost:5000/api/login", {
         email,
         password,
       });
 
-      // If the login is successful, store the token and navigate to the home page
+      
       if (response.data.token) {
-        localStorage.setItem("token", response.data.token); // Store token in localStorage
+        localStorage.setItem("token", response.data.token); 
         alert("Login successful!");
-        navigate("/"); // Redirect to home page after successful login
+        navigate("/"); 
       }
     } catch (error) {
       alert("Invalid email or password. Please try again.");

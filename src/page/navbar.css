@@ -2,20 +2,20 @@
 .navbar {
     background-color: black;
     color: white;
-    position: fixed; /* Fix the navbar to the top */
-    top: 0; /* Align to the top of the screen */
-    left: 0; /* Align to the left */
-    width: 100%; /* Full width of the screen */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content horizontally */
-    z-index: 1000; /* Ensure it's on top of other elements */
+    justify-content: center; 
+    z-index: 1000; 
   }
   
-  /* Navbar List */
+  
   .navbar-list {
-    display: none; /* Hide on mobile */
+    display: none; 
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -23,7 +23,7 @@
     gap: 100px;
   }
   
-  /* Navbar Item */
+  
   .navbar-item {
     cursor: pointer;
   }
