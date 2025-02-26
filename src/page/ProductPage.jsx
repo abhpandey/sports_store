@@ -5,6 +5,7 @@ import "./productPage.css"; // Import the CSS file
 const ProductPage = () => {
   const { addToCart } = useCart();
   const [popupVisible, setPopupVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Sample products with image URLs
   const products = [
@@ -41,26 +42,44 @@ const ProductPage = () => {
     }, 2000);
   };
 
+  // Filter products based on search query
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
       <h1 className="product-title">Products</h1>
+
+      {/* Search Bar */}
+      <input
+        type="text"
+        className="search-bar"
+        placeholder="Search products..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
 
       {/* Popup Message */}
       {popupVisible && <div className="popup-message">✅ Successfully Added to Cart!</div>}
 
       <div className="product-container">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.name} className="product-image" />
-            <div className="product-details">
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-price">₹{product.price}</p>
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <div key={product.id} className="product-card">
+              <img src={product.image} alt={product.name} className="product-image" />
+              <div className="product-details">
+                <h3 className="product-name">{product.name}</h3>
+                <p className="product-price">₹{product.price}</p>
+              </div>
+              <button className="product-btn" onClick={() => handleAddToCart(product)}>
+                Add to Cart
+              </button>
             </div>
-            <button className="product-btn" onClick={() => handleAddToCart(product)}>
-              Add to Cart
-            </button>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="no-results">No products found</p>
+        )}
       </div>
     </div>
   );
