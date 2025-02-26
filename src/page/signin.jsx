@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // For redirection
-import "./SignIn.css"; // CSS file for styling
+import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import axios to make HTTP requests
+import "./signIn.css";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate(); // Hook to navigate
+  const [error, setError] = useState(""); // For error messages
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(""); // Reset any previous errors
 
     // Password match validation
     if (password !== confirmPassword) {
@@ -20,26 +21,27 @@ const SignIn = () => {
       return;
     }
 
+    // Password strength validation (Optional but recommended)
+    if (password.length < 6) {
+      setError("Password should be at least 6 characters.");
+      return;
+    }
+
     try {
-      // Update the URL to point to your backend's signup endpoint
-      const response = await fetch("http://localhost:5000/api/signin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, phone, password }),
+      // Send the signup request to the backend
+      const response = await axios.post("http://localhost:5000/api/auth/signup", {
+        email,
+        phone,
+        password,
       });
 
-      const data = await response.json();
-
-      // Handle successful sign-up
-      if (response.ok) {
-        alert("Sign-up successful! Redirecting to login...");
-        navigate("/login"); // Redirect to login page
-      } else {
-        setError(data.error || "Signup failed. Try again.");
-      }
+      // Handle successful signup
+      alert("Sign-up successful! Redirecting to login...");
+      navigate("/login"); // Redirect to login page after successful sign-up
     } catch (err) {
-      setError("Server error. Please try again later.");
-      console.error("Signup Error:", err);
+      // Handle error from the backend (e.g., email already exists)
+      console.error(err); // Log the error for debugging
+      setError(err.response?.data?.message || "Sign-up failed. Please try again.");
     }
   };
 
@@ -47,10 +49,8 @@ const SignIn = () => {
     <div className="signin-page">
       <h1 className="signin-title">Sign Up</h1>
       <form onSubmit={handleSubmit} className="signin-form">
-        {/* Display error message if there's an error */}
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="error-message">{error}</p>} {/* Display error message */}
 
-        {/* Email input field */}
         <div className="form-group">
           <label htmlFor="email" className="form-label">Email</label>
           <input
@@ -64,7 +64,6 @@ const SignIn = () => {
           />
         </div>
 
-        {/* Phone number input field */}
         <div className="form-group">
           <label htmlFor="phone" className="form-label">Phone Number</label>
           <input
@@ -79,7 +78,6 @@ const SignIn = () => {
           />
         </div>
 
-        {/* Password input field */}
         <div className="form-group">
           <label htmlFor="password" className="form-label">Password</label>
           <input
@@ -93,7 +91,6 @@ const SignIn = () => {
           />
         </div>
 
-        {/* Confirm password input field */}
         <div className="form-group">
           <label htmlFor="confirm-password" className="form-label">Confirm Password</label>
           <input
@@ -107,10 +104,8 @@ const SignIn = () => {
           />
         </div>
 
-        {/* Submit button */}
         <button type="submit" className="signin-btn">Sign Up</button>
 
-        {/* Link to login page if already have an account */}
         <p className="signin-link">
           Already have an account? <a href="/login">Login here</a>
         </p>
