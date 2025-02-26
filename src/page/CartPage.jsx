@@ -1,16 +1,28 @@
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import "./cartPage.css"; // Import CSS for styling
+import "./cartPage.css";
 
 const CartPage = () => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
 
   const goBackToProducts = () => {
     navigate("/product");
   };
 
-  // Calculate the total amount
+  const handlePurchase = () => {
+    if (cart.length === 0) {
+      alert("Error: Your cart is empty! 🛑 Please add items before purchasing.");
+      return;
+    }
+
+    const confirmOrder = window.confirm("Are you sure you want to place the order?");
+    if (confirmOrder) {
+      alert("Order placed successfully! 🎉");
+      clearCart(); // This will now trigger a re-render immediately
+    }
+  };
+
   const totalAmount = cart.reduce((total, item) => total + item.price, 0);
 
   return (
@@ -36,16 +48,20 @@ const CartPage = () => {
         </div>
       )}
 
-      {/* Total Price Section */}
       {cart.length > 0 && (
         <div className="cart-total">
           <h2>Total: ₹{totalAmount}</h2>
         </div>
       )}
 
-      <button onClick={goBackToProducts} className="go-back-button">
-        🔙 Go Back to Products
-      </button>
+      <div className="cart-buttons">
+        <button onClick={goBackToProducts} className="go-back-button">
+          🔙 Go Back to Products
+        </button>
+        <button onClick={handlePurchase} className="purchase-button">
+          🛒 Purchase
+        </button>
+      </div>
     </div>
   );
 };

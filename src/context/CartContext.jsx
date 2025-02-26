@@ -23,8 +23,13 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+  // Clear the entire cart
+  const clearCart = () => {
+    setCart([]); // This ensures immediate re-render
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
       {children}
     </CartContext.Provider>
   );
