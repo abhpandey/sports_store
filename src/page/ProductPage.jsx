@@ -20,7 +20,7 @@ const ProductPage = () => {
     { id: 9, name: "Football", price: 2250, image: "public/Images/football-rubber-mounted-country-3-600x600.jpg" },
     { id: 10, name: "Jujulani String bag", price: 2000, image: "public/Images/string-bag-1-600x600.jpg" },
     { id: 11, name: "Badminton Racket", price: 5540, image: "public/Images/kawasaki-firefox-3370-3-600x600.jpg" },
-    { id: 12, name: "Vixen Shuttlecock", price: 1115, image: "public/Images/badminton-shuttle-cock-vixen-feather-1-600x600.jpg" },
+    { id: 12, name: "Batminton Vixen Shuttlecock", price: 1115, image: "public/Images/badminton-shuttle-cock-vixen-feather-1-600x600.jpg" },
     { id: 13, name: "Mikasa BasketBall", price: 5520, image: "public/Images/Mikasa-power-jam.jpg" },
     { id: 14, name: "Dart Board", price: 160, image: "public/Images/dart-board-vixen-16-premium-1-1-600x600.jpg" },
     { id: 15, name: "Frisbee", price: 80, image: "public/Images/frisbee-vixen-1-600x600.jpg" },
